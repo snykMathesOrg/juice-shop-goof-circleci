@@ -37,12 +37,12 @@ jobs:
           name: snyk code to snyk app dashboard
           monitor-on-build: false
           fail-on-issues: false
-          command: snyk code test --report
+          command: code test --report
       - snyk/scan:
           name: snyk code to circleCI dashboard
           monitor-on-build: false
           fail-on-issues: false
-          command: snyk code test
+          command: code test
           additional-arguments: --json-file-output=code-results.json
       - run: cat code-results.json | snyk-to-html -o code-report.html
       - store_artifacts: 
