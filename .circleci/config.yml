@@ -19,7 +19,8 @@ jobs:
       #- run: npm install
       #- run: npm ci
       # - snyk/install 
-      - snyk/scan
+      - snyk/scan:
+        organization: e5967558-20dd-453c-b1da-6fa22d0c4332
       - run:
           command: snyk version
           name: Which version of snyk is installed
