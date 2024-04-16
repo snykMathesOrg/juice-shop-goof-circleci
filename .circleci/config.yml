@@ -16,9 +16,9 @@ jobs:
       - image: cimg/node:lts
     steps:
       - checkout
-      - run: npm install
-      - run: npm ci
-      - snyk/install
+      #- run: npm install
+      #- run: npm ci
+      - snyk/install 
       - run:
           command: snyk version
           name: Which version of snyk is installed
