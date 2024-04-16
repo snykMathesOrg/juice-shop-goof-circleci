@@ -10,7 +10,7 @@ on:
     paths:
     - '_build_flag'
 jobs:
-  test-node:
+  test-node2:
     # Install node dependencies and run tests
     executor: node/default
     environment:
