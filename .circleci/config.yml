@@ -3,7 +3,7 @@
 version: 2.1
 orbs:
   snyk: snyk/snyk@2.1.0
-  node: circleci/node@5
+  #node: circleci/node@5
 jobs:
   snyk-scan:
     docker:
