@@ -36,7 +36,8 @@ jobs:
       - snyk/scan:
           monitor-on-build: false
           fail-on-issues: false
-          command: code test --report
+          command: code test
+          additional-arguments: --report
       - snyk/scan:
           monitor-on-build: false
           fail-on-issues: false
