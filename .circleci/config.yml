@@ -37,7 +37,7 @@ jobs:
           monitor-on-build: false
           fail-on-issues: false
           command: code test
-          additional-arguments: --report
+          additional-arguments: --report --project-name="juice-shop-goof-circlei"
       - snyk/scan:
           monitor-on-build: false
           fail-on-issues: false
