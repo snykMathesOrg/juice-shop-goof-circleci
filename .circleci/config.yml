@@ -4,12 +4,6 @@ version: 2.1
 orbs:
   snyk: snyk/snyk@2.1.0
   node: circleci/node@5
-on:
-  push:
-    branches:
-    - master
-    paths:
-    - '_build_flag'
 jobs:
   snyk-scan:
     docker:
