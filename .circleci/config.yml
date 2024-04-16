@@ -11,7 +11,7 @@ on:
     paths:
     - '_build_flag'
 jobs:
-  snykMonitor:
+  snyk-scan:
     docker:
       - image: cimg/node:lts
     steps:
@@ -20,9 +20,6 @@ jobs:
       # - run: npm ci
       # - snyk/install 
       - snyk/scan:
-        organization: e5967558-20dd-453c-b1da-6fa22d0c4332
-        fail-on-issues: false
-        monitor-on-build: true
       #- run:
       #    command: snyk version
       #    name: Which version of snyk is installed
@@ -61,7 +58,10 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - snykMonitor
+      - snyk-scan:
+        organization: e5967558-20dd-453c-b1da-6fa22d0c4332
+        fail-on-issues: false
+        monitor-on-build: true
     #  - test-node2
     # - deploy:
     #     requires:
