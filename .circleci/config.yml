@@ -20,23 +20,6 @@ jobs:
       #- run:
       #    command: snyk monitor
       #    name: Run OS monitor
-  test-node2:
-    # Install node dependencies and run tests
-    executor: node/default
-    environment:
-      JEST_JUNIT_OUTPUT_DIR: ./test-results/
-    steps:
-      - checkout
-      - node/install-packages:
-          cache-path: ~/project/node_modules
-          override-ci-command: npm install
-      - run:
-          command: npm install jest-junit
-      - run:
-          name: Run tests
-          command: npm run test --ci --runInBand --reporters=default --reporters=jest-junit
-      - store_test_results:
-          path: ./test-results/
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
@@ -50,7 +33,7 @@ jobs:
           name: found github actions config
           command: ':'
 workflows:
-  build-and-test:
+  build-test-snyk:
     jobs:
       - snyk-scan:
         organization: e5967558-20dd-453c-b1da-6fa22d0c4332
