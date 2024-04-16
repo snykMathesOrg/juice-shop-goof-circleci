@@ -16,8 +16,8 @@ jobs:
       - image: cimg/node:lts
     steps:
       - checkout
-      #- run: npm install
-      #- run: npm ci
+      - run: npm install
+      - run: npm ci
       # - snyk/install 
       - snyk/scan:
         organization: e5967558-20dd-453c-b1da-6fa22d0c4332
