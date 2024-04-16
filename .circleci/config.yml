@@ -37,6 +37,10 @@ jobs:
           monitor-on-build: false
           fail-on-issues: false
           command: snyk code test --report
+      - snyk/scan:
+          monitor-on-build: false
+          fail-on-issues: false
+          command: snyk code test
           additional-arguments: --json-file-output=code-results.json
       - run: cat code-results.json | snyk-to-html -o code-report.html
       - store_artifacts: 
