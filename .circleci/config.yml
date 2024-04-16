@@ -24,7 +24,22 @@ jobs:
       #    name: Which version of snyk is installed
       #- run:
       #    command: snyk monitor
-      #    name: Run OS monitor
+      #    name: Run OS monitor   
+  snyk-code-scan:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - checkout
+      - run: npm install --prefix=$HOME/.local -g snyk-to-html
+      # - run: npm ci
+      # - snyk/install 
+      - snyk/scan:
+          monitor-on-build: false
+          fail-on-issues: false
+          command: code test
+          additional-arguments: --json-file-output=code-results.json
+      - run: cat code-results.json | snyk-to-html -o code-report.html
+      - store-artifacts: code-report.html
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
@@ -41,6 +56,7 @@ workflows:
   build-test-snyk:
     jobs:
       - snyk-scan
+      - snyk-code-scan
     #  - test-node2
     # - deploy:
     #     requires:
