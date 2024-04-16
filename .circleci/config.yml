@@ -2,6 +2,7 @@
 # Stacks detected: cicd:github-actions:.github/workflows,deps:node:.,test:jest:
 version: 2.1
 orbs:
+  snyk: snyk/snyk@2.1.0
   node: circleci/node@5
 on:
   push:
@@ -10,6 +11,19 @@ on:
     paths:
     - '_build_flag'
 jobs:
+  snykMonitor:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - checkout
+      - run: npm ci
+      - snyk/install
+      - run:
+          command: snyk version
+          name: Which version of snyk is installed
+      - run:
+          command: snyk monitor
+          name: Run OS monitor
   test-node2:
     # Install node dependencies and run tests
     executor: node/default
@@ -42,6 +56,7 @@ jobs:
 workflows:
   build-and-test:
     jobs:
+      - snykMonitor
       - test-node2
     # - deploy:
     #     requires:
