@@ -42,7 +42,7 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - test-node
+      - test-node2
     # - deploy:
     #     requires:
     #       - test-node
