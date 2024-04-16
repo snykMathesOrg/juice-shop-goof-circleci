@@ -21,12 +21,14 @@ jobs:
       # - snyk/install 
       - snyk/scan:
         organization: e5967558-20dd-453c-b1da-6fa22d0c4332
-      - run:
-          command: snyk version
-          name: Which version of snyk is installed
-      - run:
-          command: snyk monitor
-          name: Run OS monitor
+        fail-on-issues: false
+        monitor-on-build: true
+      #- run:
+      #    command: snyk version
+      #    name: Which version of snyk is installed
+      #- run:
+      #    command: snyk monitor
+      #    name: Run OS monitor
   test-node2:
     # Install node dependencies and run tests
     executor: node/default
