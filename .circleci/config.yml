@@ -35,7 +35,7 @@ jobs:
 workflows:
   build-test-snyk:
     jobs:
-      - snyk-scan:
+      - snyk-scan
         #organization: e5967558-20dd-453c-b1da-6fa22d0c4332
         #fail-on-issues: false
         #monitor-on-build: true
