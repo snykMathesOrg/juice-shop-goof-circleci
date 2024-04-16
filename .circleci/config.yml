@@ -34,12 +34,10 @@ jobs:
       # - run: npm ci
       # - snyk/install 
       - snyk/scan:
-          name: snyk code to snyk app dashboard
           monitor-on-build: false
           fail-on-issues: false
           command: code test --report
       - snyk/scan:
-          name: snyk code to circleCI dashboard
           monitor-on-build: false
           fail-on-issues: false
           command: code test
