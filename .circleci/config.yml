@@ -39,7 +39,8 @@ jobs:
           command: code test
           additional-arguments: --json-file-output=code-results.json
       - run: cat code-results.json | snyk-to-html -o code-report.html
-      - store_artifacts: code-report.html
+      - store_artifacts: 
+          path: code-report.html
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
