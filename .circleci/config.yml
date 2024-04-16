@@ -17,8 +17,6 @@ jobs:
           #fail-on-issues: false
           #monitor-on-build: true
           command: monitor
-          command: container monitor
-          command: code test --report 
           monitor-on-build: false
         #organization: e5967558-20dd-453c-b1da-6fa22d0c4332
       #- run:
