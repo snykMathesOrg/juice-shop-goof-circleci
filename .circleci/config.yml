@@ -3,6 +3,12 @@
 version: 2.1
 orbs:
   node: circleci/node@5
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - '_build_flag'
 jobs:
   test-node:
     # Install node dependencies and run tests
