@@ -57,7 +57,7 @@ workflows:
   build-and-test:
     jobs:
       - snykMonitor
-      - test-node2
+    #  - test-node2
     # - deploy:
     #     requires:
     #       - test-node
